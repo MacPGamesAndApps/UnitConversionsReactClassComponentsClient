@@ -1,6 +1,8 @@
 import './App.css';
 import { Component } from 'react';
 
+import { Settings } from './utils/constants';
+
 class App extends Component {
     
 	/*optional*/
@@ -16,7 +18,7 @@ class App extends Component {
     SelectedType = null;
 
     componentDidMount() {
-        fetch('http://localhost:60937/api/unitconversions/gettypes')
+        fetch(Settings.UNIT_CONVERSION_ENDPOINT + 'api/unitconversions/gettypes')
         .then(conversionsData => conversionsData.json())
         .then(types => this.setState(() => 
                                         {
@@ -26,7 +28,7 @@ class App extends Component {
 
     Convert(type, value) {
         const data = {ValueFrom: value, ConversionType: type};
-        fetch('http://localhost:60937/api/unitconversions/convert',
+        fetch(Settings.UNIT_CONVERSION_ENDPOINT + 'api/unitconversions/convert',
             {
                 method: 'POST',
                 headers: {
