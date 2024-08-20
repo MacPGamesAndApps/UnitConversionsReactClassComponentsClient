@@ -19,11 +19,11 @@ class App extends Component {
 
     componentDidMount() {
         fetch(Settings.UNIT_CONVERSION_ENDPOINT + 'api/unitconversions/gettypes')
-        .then(conversionsData => conversionsData.json())
+        .then(conversionsData => conversionsData.json()).catch(err => {reject(err)})
         .then(types => this.setState(() => 
                                         {
                                             return ({conversionTypes: types});
-                                        }));
+                                        })).catch(err => {reject(err)});
     }
 
     Convert(type, value) {
@@ -38,11 +38,11 @@ class App extends Component {
                 body: JSON.stringify(data)
             }
         )
-        .then(result => result.json())
+        .then(result => result.json()).catch(err => {reject(err)})
         .then(value => this.setState(() => 
                                         {
                                             return ({convertedValue: value});
-                                        }));
+                                        })).catch(err => {reject(err)});
     }
     
     render () {
