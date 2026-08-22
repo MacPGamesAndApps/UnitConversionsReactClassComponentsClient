@@ -5,6 +5,10 @@ Hosted on Azure => https://macpunitconversionreactclassesclient.azurewebsites.ne
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Note: if npm won't run for denied error, run first the following PS command.
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+
+
 ## Available Scripts
 
 In the project directory, you can run:
